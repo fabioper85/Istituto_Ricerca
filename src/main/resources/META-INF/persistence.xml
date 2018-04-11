@@ -3,6 +3,10 @@
   <persistence-unit name="engim-unit" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <non-jta-data-source>java:comp/env/jdbc/engimDatabase</non-jta-data-source>
+    <class>org.engim.tss2018.db.Ricercatori</class>
+    <class>org.engim.tss2018.db.Aree</class>
+    <class>org.engim.tss2018.db.Team</class>
+    <class>org.engim.tss2018.db.Progetti</class>
     <properties>
       <property name="hibernate.archive.autodetection" value="class, hbm"/>
       <property name="hibernate.hbm2ddl.auto" value="none"/>
