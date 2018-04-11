@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `progetti`;
 CREATE TABLE `progetti` (
   `codice` int(11) NOT NULL,
   `data_inizio` date NOT NULL,
-  `data_fine` date DEFAULT NULL,
+  `data_fine` date NULL,
   `budget` double NOT NULL,
   `id_team` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -68,9 +68,9 @@ CREATE TABLE `ricercatori` (
   `stipendio_base` double NOT NULL,
   `bonus` double NOT NULL,
   `ruolo` char(1) NOT NULL,
-  `id_progetto` int(11) NOT NULL,
-  `id_team` int(11) NOT NULL,
-  `id_area` int(11) NOT NULL
+  `id_progetto` int(11) NULL,
+  `id_team` int(11)  NULL,
+  `id_area` int(11) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -179,8 +179,30 @@ ALTER TABLE `ricercatori`
 ALTER TABLE `team`
   ADD CONSTRAINT `team_ibfk_1` FOREIGN KEY (`id_teamleader`) REFERENCES `ricercatori` (`id`),
   ADD CONSTRAINT `team_ibfk_2` FOREIGN KEY (`id_area`) REFERENCES `aree` (`id`);
-COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+
+
+
+
+
+/* insert */
+
+INSERT INTO `ricercatori` (`id`, `nome`, `cognome`, `stipendio_base`, `bonus`, `ruolo`, `id_progetto`, `id_team`, `id_area`) VALUES (NULL, 'Carlo', 'Rossi', '1250.00', '250.00', 'j', NULL, NULL, NULL);
+INSERT INTO `ricercatori` (`id`, `nome`, `cognome`, `stipendio_base`, `bonus`, `ruolo`, `id_progetto`, `id_team`, `id_area`) VALUES (NULL, 'Maria', 'Bianchi', '2560.35', '257.00', 's', NULL, NULL, NULL);
+INSERT INTO `ricercatori` (`id`, `nome`, `cognome`, `stipendio_base`, `bonus`, `ruolo`, `id_progetto`, `id_team`, `id_area`) VALUES (NULL, 'Enzo', 'Ciccio', '1549.00', '62.0', 't', NULL, NULL, NULL);
+
+INSERT INTO `aree` (`id`, `nome`, `id_ricercatore`) VALUES (NULL, 'Torino Nord', '1'), (NULL, 'Milano Est', '2');
+
+INSERT INTO `team` (`id`, `id_teamleader`, `id_area`) VALUES (NULL, '3', '2');
+
+INSERT INTO `progetti` (`codice`, `data_inizio`, `data_fine`, `budget`, `id_team`) VALUES (NULL, '2018-04-18', '2018-04-25', '254891.20', '1');
+
+COMMIT;
