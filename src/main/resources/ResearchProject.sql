@@ -7,6 +7,10 @@
 -- Server version: 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.0.28-0ubuntu0.16.04.1
 
+DROP DATABASE IF EXISTS `ResearchProject`;
+CREATE DATABASE `ResearchProject` DEFAULT charset =utf8;
+USE `ResearchProject`;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
