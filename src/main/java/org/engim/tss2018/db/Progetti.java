@@ -52,7 +52,7 @@ import javax.xml.bind.annotation.XmlTransient;
   , @NamedQuery(name = "Progetti.findByDataFine", query = "SELECT p FROM Progetti p WHERE p.dataFine = :dataFine")
   , @NamedQuery(name = "Progetti.findByBudget", query = "SELECT p FROM Progetti p WHERE p.budget = :budget")
 })
-public class Progetti implements Serializable
+public class Progetti implements Serializable, ChiavePrimaria
 {
 
   private static final long serialVersionUID = 1L;
@@ -182,6 +182,12 @@ public class Progetti implements Serializable
   public String toString()
   {
     return "org.engim.tss2018.db.Progetti[ codice=" + codice + " ]";
+  }
+
+  @Override
+  public Integer getId()
+  {
+    return codice; //To change body of generated methods, choose Tools | Templates.
   }
   
 }
