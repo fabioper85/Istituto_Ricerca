@@ -205,4 +205,6 @@ INSERT INTO `team` (`id`, `id_teamleader`, `id_area`) VALUES (NULL, '3', '2');
 
 INSERT INTO `progetti` (`codice`, `data_inizio`, `data_fine`, `budget`, `id_team`) VALUES (NULL, '2018-04-18', '2018-04-25', '254891.20', '1');
 
+UPDATE `ricercatori` SET `id_progetto` = '1', `id_team` = '1', `id_area` = '2' WHERE `ricercatori`.`id` = 3; 
+
 COMMIT;
